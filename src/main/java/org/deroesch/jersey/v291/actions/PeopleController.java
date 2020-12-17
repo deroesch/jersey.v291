@@ -1,8 +1,5 @@
 package org.deroesch.jersey.v291.actions;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,11 +21,7 @@ public class PeopleController {
      */
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    public List<Person> getIt() {
-        List<Person> people = new ArrayList<>();
-        people.add(Person.prototype());
-        people.add(Person.prototype());
-        people.add(Person.prototype());
-        return people;
+    public Person getIt() {
+        return Person.prototype();
     }
 }
