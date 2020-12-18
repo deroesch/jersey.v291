@@ -1,5 +1,8 @@
 package org.deroesch.jersey.v291.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Planet {
 
     /**
