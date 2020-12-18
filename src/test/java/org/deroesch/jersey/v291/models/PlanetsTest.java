@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import org.deroesch.jersey.v291.models.Planet;
-import org.deroesch.jersey.v291.models.Planets;
 import org.junit.Test;
 
 public class PlanetsTest {
