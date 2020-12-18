@@ -1,4 +1,4 @@
-package org.deroesch.jersey.v291.domain;
+package org.deroesch.jersey.v291.models;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
+import org.deroesch.jersey.v291.models.Planet;
+import org.deroesch.jersey.v291.models.Planets;
 import org.junit.Test;
 
 public class PlanetsTest {

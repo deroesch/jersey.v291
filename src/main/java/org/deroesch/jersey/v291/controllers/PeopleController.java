@@ -1,11 +1,11 @@
-package org.deroesch.jersey.v291.actions;
+package org.deroesch.jersey.v291.controllers;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.deroesch.jersey.v291.domain.Person;
+import org.deroesch.jersey.v291.models.Person;
 
 /**
  * Root resource (exposed at "myresource" path)

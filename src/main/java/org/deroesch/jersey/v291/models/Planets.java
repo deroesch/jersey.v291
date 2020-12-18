@@ -1,4 +1,4 @@
-package org.deroesch.jersey.v291.domain;
+package org.deroesch.jersey.v291.models;
 
 import java.util.Collection;
 import java.util.HashMap;
