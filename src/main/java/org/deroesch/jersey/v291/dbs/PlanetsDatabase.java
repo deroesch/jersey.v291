@@ -83,7 +83,7 @@ public class PlanetsDatabase {
         return PlanetsDatabase.planets.values();
     }
 
-    // Initialize
+    // Initialize the database
     static {
         PlanetsDatabase.planets.put(mercury.getId(), mercury);
         PlanetsDatabase.planets.put(venus.getId(), venus);
