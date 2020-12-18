@@ -278,4 +278,8 @@ public class Planet {
     public static final Planet error = new Planet("Error", "AvgSolarDistance", "Diameter", "DayLength", "YearLength",
             "GravityVsEarth", "AvgTemp", "Atmosphere", -1);
 
+    public boolean isError() {
+        return this.equals(error);
+    }
+
 }

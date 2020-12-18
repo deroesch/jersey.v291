@@ -7,11 +7,30 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Person {
 
+    /**
+     * Null constructor
+     */
     public Person() {
     }
 
+    /**
+     * Field constructor
+     * 
+     * @param firstName
+     * @param lastName
+     * @param companyName
+     * @param address
+     * @param city
+     * @param county
+     * @param state
+     * @param zip
+     * @param phone1
+     * @param phone2
+     * @param email
+     * @param web
+     */
     public Person(String firstName, String lastName, String companyName, String address, String city, String county,
-            String state, int zip, String phone1, String phone2, String email, String web) {
+            String state, Integer zip, String phone1, String phone2, String email, String web) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +46,18 @@ public class Person {
         this.web = web;
 
         assert this.isValid();
+    }
+
+    /**
+     * Array constructor for CSV file loader
+     * 
+     * @param orderedArgs
+     */
+    public Person(String[] orderedArgs) {
+        this(orderedArgs[0], orderedArgs[1], orderedArgs[2], orderedArgs[3], orderedArgs[4], orderedArgs[5],
+                orderedArgs[6], new Integer(orderedArgs[7]), orderedArgs[8], orderedArgs[9], orderedArgs[10],
+                orderedArgs[11]);
+
     }
 
     public boolean isValid() {
@@ -178,4 +209,11 @@ public class Person {
     private String phone2 = "";
     private String email = "";
     private String web = "";
+
+    public static final Person error = new Person("first_name", "last_name", "company_name", "address", "city",
+            "county", "state", 0, "phone1", "phone2", "email", "web");
+
+    public boolean isError() {
+        return this.equals(error);
+    }
 }

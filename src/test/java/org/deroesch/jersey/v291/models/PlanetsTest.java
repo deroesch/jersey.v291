@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import org.deroesch.jersey.v291.dbs.PlanetsDatabase;
+import org.deroesch.jersey.v291.dbs.PlanetsDB;
 import org.junit.Test;
 
 public class PlanetsTest {
@@ -16,10 +16,10 @@ public class PlanetsTest {
     public void testGetOne() {
         
         // Try a good planet
-        assertEquals(PlanetsDatabase.earth, PlanetsDatabase.getOne(PlanetsDatabase.earth.getName()));
+        assertEquals(PlanetsDB.earth, PlanetsDB.getOne(PlanetsDB.earth.getName()));
 
         // Try a bad planet
-        assertEquals(Planet.error, PlanetsDatabase.getOne("bad name"));
+        assertEquals(Planet.error, PlanetsDB.getOne("bad name"));
     }
 
     @Test
@@ -27,9 +27,9 @@ public class PlanetsTest {
 
         // Set up expected solution
         Collection<Planet> solutionSet = new HashSet<>();
-        solutionSet.add(PlanetsDatabase.earth);
-        solutionSet.add(PlanetsDatabase.mars);
-        solutionSet.add(PlanetsDatabase.neptune);
+        solutionSet.add(PlanetsDB.earth);
+        solutionSet.add(PlanetsDB.mars);
+        solutionSet.add(PlanetsDB.neptune);
 
         // Gather solution names, for fetch-by-name
         List<String> list = new ArrayList<>();
@@ -38,13 +38,13 @@ public class PlanetsTest {
 
         // Do the fetch (expects an array of names).
         String[] solutionNames = list.toArray(new String[list.size()]);
-        assertEquals(solutionSet, PlanetsDatabase.getSome(solutionNames));
+        assertEquals(solutionSet, PlanetsDB.getSome(solutionNames));
     }
 
     @Test
     public void testGetAll() {
-        Collection<Planet> solutionSet = PlanetsDatabase.planets.values();
-        assertEquals(solutionSet, PlanetsDatabase.getAll());
+        Collection<Planet> solutionSet = PlanetsDB.planets.values();
+        assertEquals(solutionSet, PlanetsDB.getAll());
     }
 
 }
