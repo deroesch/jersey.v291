@@ -52,6 +52,14 @@ public class Planet {
     }
 
     /**
+     * 
+     * @return
+     */
+    public String getId() {
+        return name.toLowerCase();
+    }
+
+    /**
      * @return the name
      */
     public String getName() {

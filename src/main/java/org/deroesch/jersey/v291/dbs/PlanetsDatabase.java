@@ -1,4 +1,4 @@
-package org.deroesch.jersey.v291.models;
+package org.deroesch.jersey.v291.dbs;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,7 +7,9 @@ import java.util.Map;
 
 import java.util.Set;
 
-public class Planets {
+import org.deroesch.jersey.v291.models.Planet;
+
+public class PlanetsDatabase {
 
     static final Planet mercury = new Planet("Mercury", "57,900,000 km (36,000,000 miles)", "4,878 km (3,031 miles)",
             "59 days", "88 days", "0.38", "-183 °C to 427 °C", "Sodium, helium", 0);
@@ -50,7 +52,7 @@ public class Planets {
     public static Planet getOne(String name) {
         assert null != name;
 
-        Planet p = Planets.planets.get(name);
+        Planet p = PlanetsDatabase.planets.get(name.toLowerCase());
         return p == null ? Planet.error : p;
     }
 
@@ -64,7 +66,7 @@ public class Planets {
         Set<Planet> planets = new HashSet<>();
 
         for (String name : names)
-            planets.add(Planets.getOne(name));
+            planets.add(PlanetsDatabase.getOne(name.toLowerCase()));
 
         return planets;
     }
@@ -75,20 +77,20 @@ public class Planets {
      * @return
      */
     public static Collection<Planet> getAll() {
-        return Planets.planets.values();
+        return PlanetsDatabase.planets.values();
     }
 
     // Initialize
     static {
-        Planets.planets.put(mercury.getName(), mercury);
-        Planets.planets.put(venus.getName(), venus);
-        Planets.planets.put(earth.getName(), earth);
-        Planets.planets.put(mars.getName(), mars);
-        Planets.planets.put(jupiter.getName(), jupiter);
-        Planets.planets.put(saturn.getName(), saturn);
-        Planets.planets.put(uranus.getName(), uranus);
-        Planets.planets.put(Planets.neptune.getName(), neptune);
-        Planets.planets.put(Planets.pluto.getName(), pluto);
+        PlanetsDatabase.planets.put(mercury.getId(), mercury);
+        PlanetsDatabase.planets.put(venus.getId(), venus);
+        PlanetsDatabase.planets.put(earth.getId(), earth);
+        PlanetsDatabase.planets.put(mars.getId(), mars);
+        PlanetsDatabase.planets.put(jupiter.getId(), jupiter);
+        PlanetsDatabase.planets.put(saturn.getId(), saturn);
+        PlanetsDatabase.planets.put(uranus.getId(), uranus);
+        PlanetsDatabase.planets.put(PlanetsDatabase.neptune.getId(), neptune);
+        PlanetsDatabase.planets.put(PlanetsDatabase.pluto.getId(), pluto);
     }
 
 }
