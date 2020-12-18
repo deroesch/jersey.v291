@@ -67,6 +67,7 @@ public class PlanetsDatabase {
     public static Set<Planet> getSome(String[] names) {
         Set<Planet> planets = new HashSet<>();
 
+        // Collect named planets
         for (String name : names)
             planets.add(PlanetsDatabase.getOne(name.toLowerCase()));
 
