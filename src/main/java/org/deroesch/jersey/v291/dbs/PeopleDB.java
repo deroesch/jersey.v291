@@ -29,28 +29,28 @@ public class PeopleDB {
     /**
      * Get one planet
      * 
-     * @param name
+     * @param id
      * @return
      */
-    public static Person getOne(String name) {
-        assert null != name;
+    public static Person getOne(String id) {
+        assert null != id;
 
-        Person p = PeopleDB.people.get(name.toLowerCase());
+        Person p = PeopleDB.people.get(id.toLowerCase());
         return p == null ? Person.error : p;
     }
 
     /**
      * Get some people
      * 
-     * @param names
+     * @param ids
      * @return
      */
-    public static Set<Person> getSome(String[] names) {
+    public static Set<Person> getSome(String[] ids) {
         Set<Person> people = new HashSet<>();
 
-        // Collect named people
-        for (String name : names)
-            people.add(PeopleDB.getOne(name.toLowerCase()));
+        // Collect people by their IDs
+        for (String id : ids)
+            people.add(PeopleDB.getOne(id.toLowerCase()));
 
         return people;
     }
