@@ -167,17 +167,25 @@ public class Person {
         this.web = web;
     }
 
-    @Override
-    public String toString() {
-        return "Person [firstName=" + firstName + ", lastName=" + lastName + ", companyName=" + companyName
-                + ", address=" + address + ", city=" + city + ", county=" + county + ", state=" + state + ", zip=" + zip
-                + ", phone1=" + phone1 + ", phone2=" + phone2 + ", email=" + email + ", web=" + web + "]";
-    }
+    /*
+     * @Override public String toString() { return "Person [firstName=" + firstName
+     * + ", lastName=" + lastName + ", companyName=" + companyName + ", address=" +
+     * address + ", city=" + city + ", county=" + county + ", state=" + state +
+     * ", zip=" + zip + ", phone1=" + phone1 + ", phone2=" + phone2 + ", email=" +
+     * email + ", web=" + web + "]"; }
+     */
+    
+    
 
     @Override
     public int hashCode() {
         return Objects.hash(address, city, companyName, county, email, firstName, lastName, phone1, phone2, state, web,
                 zip);
+    }
+
+    @Override
+    public String toString() {
+        return "Person [email=" + email + "]";
     }
 
     @Override
@@ -215,5 +223,9 @@ public class Person {
 
     public boolean isError() {
         return this.equals(error);
+    }
+
+    public String getId() {
+        return this.getEmail();
     }
 }

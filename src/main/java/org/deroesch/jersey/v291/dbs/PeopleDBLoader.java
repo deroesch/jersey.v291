@@ -44,7 +44,7 @@ public class PeopleDBLoader {
                 // Convert to Person bean, store in database
                 // indexed by email address
                 Person p = new Person(fields);
-                db.put(p.getEmail(), p);
+                db.put(p.getId(), p);
             }
         } catch (IOException e) {
             // Line read failed, exit.

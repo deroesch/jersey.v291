@@ -2,11 +2,15 @@ package org.deroesch.jersey.v291.dbs;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.deroesch.jersey.v291.models.Person;
 import org.junit.Test;
+
+import jersey.repackaged.com.google.common.collect.Sets;
 
 public class PeopleDBTest {
 
@@ -24,14 +28,17 @@ public class PeopleDBTest {
 
         // Test a subset
         Set<Person> expected = new HashSet<Person>();
+        expected.add(lenna);
         expected.add(rasheeda);
         expected.add(ezekiel);
-        expected.add(lenna);
         expected.add(Person.error);
 
         String[] ids = { lenna.getEmail(), rasheeda.getEmail(), ezekiel.getEmail(), "no such email" };
 
-        assertEquals(expected, PeopleDB.getSome(ids));
+        List<Person> some = PeopleDB.getSome(ids);
+        Set<Person> actual = Sets.newHashSet(some);
+
+        assertEquals(expected, actual);
     }
 
     @Test

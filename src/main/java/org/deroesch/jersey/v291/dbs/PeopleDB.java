@@ -1,30 +1,13 @@
 package org.deroesch.jersey.v291.dbs;
 
 import java.io.FileNotFoundException;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 import org.deroesch.jersey.v291.models.Person;
 
-public class PeopleDB {
-
-    // The people database
-    private static Map<String, Person> people = new HashMap<>();
-
-    // Load the database
-    static {
-        try {
-            PeopleDBLoader.load(people, "src/main/resources/us-500.txt");
-        } catch (FileNotFoundException e) {
-            
-            // DB wouldn't load.  Sorry, we must say goodbye...
-            e.printStackTrace();
-            System.exit(-1);
-        }
-    }
+public class PeopleDB { 
 
     /**
      * Get one planet
@@ -35,7 +18,7 @@ public class PeopleDB {
     public static Person getOne(String id) {
         assert null != id;
 
-        Person p = PeopleDB.people.get(id.toLowerCase());
+        Person p = PeopleDB.people.get(id);
         return p == null ? Person.error : p;
     }
 
@@ -45,12 +28,13 @@ public class PeopleDB {
      * @param ids
      * @return
      */
-    public static Set<Person> getSome(String[] ids) {
-        Set<Person> people = new HashSet<>();
+    public static List<Person> getSome(String[] ids) {
+        assert null != ids;
+        List<Person> people = new ArrayList<>();
 
         // Collect people by their IDs
         for (String id : ids)
-            people.add(PeopleDB.getOne(id.toLowerCase()));
+            people.add(PeopleDB.getOne(id));
 
         return people;
     }
@@ -60,8 +44,30 @@ public class PeopleDB {
      * 
      * @return
      */
-    public static Collection<Person> getAll() {
-        return PeopleDB.people.values();
+    public static List<Person> getAll() {
+        return new ArrayList<>(PeopleDB.people.values());
+    }
+
+    // The people database
+    private static Map<String, Person> people = new HashMap<>();
+
+    /**
+     * 
+     * @param path
+     */
+    public static void init(String path) {
+        System.out.println("Init now");
+
+        if (people.size() == 0)
+            try {
+                PeopleDBLoader.load(people, path);
+            } catch (FileNotFoundException e) {
+
+                // DB wouldn't load. Sorry, we must say goodbye...
+                e.printStackTrace();
+                System.exit(-1);
+            }
+
     }
 
 }
