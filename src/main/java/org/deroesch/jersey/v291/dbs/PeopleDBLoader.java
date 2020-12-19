@@ -15,13 +15,13 @@ public class PeopleDBLoader {
      * Read People data from a CSV file
      * 
      * @param db        the database (hash map) to fill
-     * @param pathToCsv path to the file holding People data
+     * @param path path to the file holding People data
      * @throws FileNotFoundException if you lied about the file location
      */
-    static public void load(Map<String, Person> db, String pathToCsv) throws FileNotFoundException {
-        assert null != pathToCsv;
+    static public void load(Map<String, Person> db, String path) throws FileNotFoundException {
+        assert null != path;
 
-        FileReader fr = new FileReader(pathToCsv);
+        FileReader fr = new FileReader(path);
         String[] fields;
 
         // Load records from a CSV file and convert them into People beans.

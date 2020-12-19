@@ -1,8 +1,8 @@
 package org.deroesch.jersey.v291.dbs;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,7 +45,7 @@ public class PeopleDBTest {
     public void testGetAll() {
 
         // Fetch them all
-        assertTrue(PeopleDB.getAll().size() == 500);
+        assertEquals(500, PeopleDB.getAll().size());
     }
 
     /**

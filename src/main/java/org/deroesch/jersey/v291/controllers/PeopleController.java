@@ -1,5 +1,6 @@
 package org.deroesch.jersey.v291.controllers;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -26,10 +27,11 @@ public class PeopleController {
      * client as "text/plain" media type.
      *
      * @return String that will be returned as a text/plain response.
+     * @throws FileNotFoundException 
      */
     @GET
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    public List<Person> getAll() {
+    public List<Person> getAll() throws FileNotFoundException {
 
         String path = "src/main/resources/us-500.txt";
 
@@ -40,8 +42,6 @@ public class PeopleController {
         } catch (NullPointerException e) {
             // Expected in JUnit context
         }
-        
-        System.out.println("Using path "  + path);
 
         PeopleDB.init(path);
 

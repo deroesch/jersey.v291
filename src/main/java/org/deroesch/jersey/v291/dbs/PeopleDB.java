@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.deroesch.jersey.v291.models.Person;
 
-public class PeopleDB { 
+public class PeopleDB {
 
     /**
      * Get one planet
@@ -55,19 +55,18 @@ public class PeopleDB {
      * 
      * @param path
      */
-    public static void init(String path) {
-        System.out.println("Init now");
-
+    public static void init(String path) throws FileNotFoundException {
         if (people.size() == 0)
-            try {
-                PeopleDBLoader.load(people, path);
-            } catch (FileNotFoundException e) {
+            PeopleDBLoader.load(people, path);
+    }
 
-                // DB wouldn't load. Sorry, we must say goodbye...
-                e.printStackTrace();
-                System.exit(-1);
-            }
-
+    static {
+        try {
+            PeopleDB.init("src/main/resources/us-500.txt");
+        } catch (FileNotFoundException e) {
+            // This will throw if we're using a ServletContext. In that case,
+            // ignore the error and perform the init() inside the servlet.
+        }
     }
 
 }

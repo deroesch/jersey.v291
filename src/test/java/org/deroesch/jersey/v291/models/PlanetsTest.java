@@ -11,7 +11,6 @@ import org.deroesch.jersey.v291.dbs.PlanetsDB;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore
 public class PlanetsTest {
 
     @Test
