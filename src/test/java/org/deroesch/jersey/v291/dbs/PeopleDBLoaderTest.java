@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.deroesch.jersey.v291.models.Person;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PeopleDBLoaderTest {

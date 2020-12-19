@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.deroesch.jersey.v291.models.Person;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class PeopleControllerTest {
