@@ -5,13 +5,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.deroesch</groupId>
-	<artifactId>jersey.v291</artifactId>
+	<artifactId>jersey-v291</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jersey.v291</name>
+
+	<parent>
+		<groupId>assetservicing</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.8</version>
+	</parent>
 
 	<build>
-		<finalName>jersey.v291</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
